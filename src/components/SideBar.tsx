@@ -11,16 +11,12 @@ interface GenreResponseProps {
 }
 
 interface SideBarProps {
-  setSelectedGenreId: React.Dispatch<React.SetStateAction<number>>;
   genres: GenreResponseProps[];
+  handleClickButton: (id: number) => void;
   selectedGenreId: number
 }
 
-export function SideBar({ setSelectedGenreId, genres, selectedGenreId }: SideBarProps) {
-  function handleClickButton(id: number) {
-    setSelectedGenreId(id);
-  }
-
+export function SideBar({ genres, handleClickButton, selectedGenreId }: SideBarProps) {
   return (
     <nav className="sidebar">
       <span>Watch<p>Me</p></span>
