@@ -1,12 +1,20 @@
-import { useState, useEffect } from 'react';
-
-import { api } from '../services/api';
-
 import { MovieCard } from './MovieCard';
 
 import '../styles/content.scss';
 
-import { MovieProps, GenreResponseProps } from '../interfaces';
+interface GenreResponseProps {
+  title: string;
+}
+
+interface MovieProps {
+  Title: string;
+  Poster: string;
+  Ratings: Array<{
+    Source: string;
+    Value: string;
+  }>;
+  Runtime: string;
+}
 
 interface ContentProps {
   selectedGenre: GenreResponseProps;
@@ -14,7 +22,6 @@ interface ContentProps {
 }
 
 export function Content({ selectedGenre, movies }: ContentProps) {
-
   return (
     <div className="container">
       <header>

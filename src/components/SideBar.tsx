@@ -1,11 +1,14 @@
 import React from 'react';
-import { api } from '../services/api';
 
 import { Button } from './Button';
 
 import '../styles/sidebar.scss';
 
-import { GenreResponseProps } from '../interfaces';
+interface GenreResponseProps {
+  id: number;
+  name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
+  title: string;
+}
 
 interface SideBarProps {
   setSelectedGenreId: React.Dispatch<React.SetStateAction<number>>;
