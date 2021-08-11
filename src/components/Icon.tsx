@@ -1,11 +1,11 @@
-import React from "react";
+import { memo } from "react";
 
 interface IconProps {
   name: 'action' | 'comedy' | 'documentary' | 'drama' | 'horror' | 'family';
   color: string;
 }
 
-export function Icon(props: IconProps) {
+export function IconComponent(props: IconProps) {
 
   switch (props.name) {
     case 'action':
@@ -50,3 +50,7 @@ export function Icon(props: IconProps) {
       );
   }
 }
+
+export const Icon = memo(IconComponent, (prevProps, nextProps) => {
+  return Object.is(prevProps, nextProps);
+});
